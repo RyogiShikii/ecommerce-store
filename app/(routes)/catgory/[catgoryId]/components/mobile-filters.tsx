@@ -1,12 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { Plus } from "lucide-react";
+import { Plus, X } from "lucide-react";
 import { Dialog } from "@headlessui/react";
 
 import { Color, Size } from "@/types";
 import Button from "@/components/ui/button";
 import Filter from "./filter";
+import IconButton from "@/components/ui/icon-button";
 
 interface MobileFiltersProps {
   sizes: Size[];
@@ -37,7 +38,7 @@ const MobileFilters: React.FC<MobileFiltersProps> = ({ sizes, colors }) => {
         <Dialog.Panel className="relative ml-auto flex h-full w-full max-w-xs flex-col overflow-auto bg-white py-4 pb-6 shadow-xl">
           {/*close button */}
           <div className="flex items-center justify-end px-4">
-            <Button onClick={onClose}>Close</Button>
+            <IconButton onClick={onClose} icon={<X size={15} />} />
           </div>
           <div className="p-4">
             <Filter valueKey="sizeId" name="Sizes" data={sizes} />
